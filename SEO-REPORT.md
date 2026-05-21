@@ -224,6 +224,8 @@ H1 — "100% Gratuito transformar suas vendas no Mercado Livre"
 | 21/05/2026 | Repositório criado | `git init` + `git remote add origin https://github.com/taysouzaa/captura-ADS.git` |
 | 21/05/2026 | Commit inicial | `cfc006f` — 19 arquivos (index.html, assets, fonts, SEO-REPORT, sitemap, robots) |
 | 21/05/2026 | Push para GitHub | Branch `master` publicada em `https://github.com/taysouzaa/captura-ADS` |
+| 21/05/2026 | Push branch `main` | Conteúdo movido para branch padrão `main` |
+| 21/05/2026 | Troca imagem hero | `ChatGPT Image 21 de mai...png` → `79c11951-48df-4d6a-b3f4-baa48199607b.png` (preload + background-image atualizados) |
 
 ---
 
