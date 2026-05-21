@@ -1,7 +1,9 @@
 # Relatório de SEO — Lead Curso ADS (Método P4)
 **Arquivo analisado:** `index.html`  
 **Última atualização:** 21 de maio de 2026  
-**URL de produção prevista:** `https://ads.metodop4.com.br/`
+**URL de produção prevista:** `https://ads.metodop4.com.br/`  
+**Repositório GitHub:** `https://github.com/taysouzaa/captura-ADS`  
+**Branch:** `master` — commit inicial `cfc006f`
 
 ---
 
@@ -212,6 +214,16 @@ H1 — "100% Gratuito transformar suas vendas no Mercado Livre"
 - **FAQ com 5 perguntas** que eliminam objeções de inscrição
 - CTAs em: hero, seção de preço, FAQ e instrutor
 - Formulário com 5 campos: nome, WhatsApp (2×), e-mail, nível de medalha ML
+
+---
+
+## Controle de Versão
+
+| Data | Ação | Detalhe |
+|---|---|---|
+| 21/05/2026 | Repositório criado | `git init` + `git remote add origin https://github.com/taysouzaa/captura-ADS.git` |
+| 21/05/2026 | Commit inicial | `cfc006f` — 19 arquivos (index.html, assets, fonts, SEO-REPORT, sitemap, robots) |
+| 21/05/2026 | Push para GitHub | Branch `master` publicada em `https://github.com/taysouzaa/captura-ADS` |
 
 ---
 
