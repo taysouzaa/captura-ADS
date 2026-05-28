@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ads.metodop4.com.br/sitemap.xml
+Sitemap: https://productads.metodop4.com.br/sitemap.xml
+

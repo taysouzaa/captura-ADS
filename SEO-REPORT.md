@@ -1,7 +1,7 @@
 # Relatório de SEO — Lead Curso ADS (Método P4)
 **Arquivo analisado:** `index.html`  
 **Última atualização:** 21 de maio de 2026  
-**URL de produção prevista:** `https://ads.metodop4.com.br/`  
+**URL de produção prevista:** `https://productads.metodop4.com.br/`  
 **Repositório GitHub:** `https://github.com/taysouzaa/captura-ADS`  
 **Branch:** `master` — commit inicial `cfc006f`
 
@@ -37,7 +37,7 @@ A landing page está bem estruturada do ponto de vista de SEO técnico. Todas as
 <meta name="keywords" content="product ads, mercado livre, curso gratuito, anúncios mercado livre, método p4, gabriel pim, e-commerce, vendas online">
 <meta name="robots" content="index, follow">
 <meta name="author" content="Método P4">
-<link rel="canonical" href="https://ads.metodop4.com.br/">
+<link rel="canonical" href="https://productads.metodop4.com.br/">
 ```
 
 **Status: ✅ Completo**
@@ -54,9 +54,9 @@ A landing page está bem estruturada do ponto de vista de SEO técnico. Todas as
 
 ```html
 <meta property="og:type"       content="website">
-<meta property="og:url"        content="https://ads.metodop4.com.br/">
+<meta property="og:url"        content="https://productads.metodop4.com.br/">
 <meta property="og:title"      content="Curso Gratuito de Product Ads — Método P4">
-<meta property="og:image"      content="https://ads.metodop4.com.br/assets/og-image.png">
+<meta property="og:image"      content="https://productads.metodop4.com.br/assets/og-image.png">
 <meta property="og:image:alt"  content="Curso Gratuito de Product Ads — Método P4">
 <meta property="og:image:width"  content="1200">
 <meta property="og:image:height" content="630">
@@ -199,7 +199,7 @@ H1 — "100% Gratuito transformar suas vendas no Mercado Livre"
 
 **Status: ✅ Criados**
 
-- **`sitemap.xml`** — URL `https://ads.metodop4.com.br/`, `changefreq: monthly`, `priority: 1.0`
+- **`sitemap.xml`** — URL `https://productads.metodop4.com.br/`, `changefreq: monthly`, `priority: 1.0`
 - **`robots.txt`** — `Allow: /` + apontamento para o sitemap
 
 ---
@@ -293,3 +293,4 @@ H1 — "100% Gratuito transformar suas vendas no Mercado Livre"
 | Tipografia | Sora (self-hosted, 6 pesos, `font-display: swap`) |
 | Border radius cards | 14px – 20px |
 | Animações | CSS transitions + IntersectionObserver reveal |
+
