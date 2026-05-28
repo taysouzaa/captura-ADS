@@ -2,19 +2,43 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <script>
+    (function captureAndCleanTracking() {
+      var keys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','utm_id','channel','canal'];
+      var initialUrl = window.location.href;
+      var p = new URLSearchParams(window.location.search);
+      window.__leadTracking = {
+        channel: p.get('channel') || p.get('canal') || '',
+        utm_source: p.get('utm_source') || '',
+        utm_medium: p.get('utm_medium') || '',
+        utm_campaign: p.get('utm_campaign') || '',
+        utm_content: p.get('utm_content') || '',
+        utm_term: p.get('utm_term') || '',
+        utm_id: p.get('utm_id') || '',
+        referrer: document.referrer || '',
+        page_url: initialUrl,
+        timestamp: new Date().toISOString()
+      };
+      if (!keys.some(function(k){ return p.has(k); })) return;
+      var c = new URLSearchParams(p);
+      keys.forEach(function(k){ c.delete(k); });
+      var q = c.toString();
+      window.history.replaceState({}, '', window.location.pathname + (q ? '?' + q : '') + window.location.hash);
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aula Gratuita de Product Ads — Método P4</title>
   <meta name="description" content="Aprenda de graça como usar o Product Ads para vender mais no Mercado Livre. Domine lances, orçamento, métricas e o Método P4 exclusivo.">
   <link rel="icon" type="image/png" href="assets/01%20(1).png">
   <link rel="apple-touch-icon" href="assets/01%20(1).png">
 
-  <link rel="canonical" href="https://ads.metodop4.com.br/">
+  <link rel="canonical" href="https://productads.metodop4.com.br/">
 
   <meta property="og:type"        content="website">
-  <meta property="og:url"         content="https://ads.metodop4.com.br/">
+  <meta property="og:url"         content="https://productads.metodop4.com.br/">
   <meta property="og:title"       content="Aula Gratuita de Product Ads — Método P4">
   <meta property="og:description" content="Aprenda de graça como usar o Product Ads para vender mais no Mercado Livre. Domine lances, orçamento, métricas e o Método P4 exclusivo.">
-  <meta property="og:image"       content="https://ads.metodop4.com.br/assets/og-image.png">
+  <meta property="og:image"       content="https://productads.metodop4.com.br/assets/og-image.png">
   <meta property="og:image:width"  content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:locale"      content="pt_BR">
@@ -23,7 +47,7 @@
   <meta name="twitter:card"        content="summary_large_image">
   <meta name="twitter:title"       content="Aula Gratuita de Product Ads — Método P4">
   <meta name="twitter:description" content="Aprenda de graça como usar o Product Ads para vender mais no Mercado Livre.">
-  <meta name="twitter:image"       content="https://ads.metodop4.com.br/assets/og-image.png">
+  <meta name="twitter:image"       content="https://productads.metodop4.com.br/assets/og-image.png">
   <meta property="og:image:alt"    content="Aula Gratuita de Product Ads — Método P4">
 
   <meta name="robots" content="index, follow">
@@ -39,7 +63,7 @@
     "provider": {
       "@type": "Organization",
       "name": "Método P4",
-      "url": "https://ads.metodop4.com.br/",
+      "url": "https://productads.metodop4.com.br/",
       "sameAs": [
         "https://www.instagram.com/metodop4/",
         "https://www.linkedin.com/company/m%C3%A9todo-p4/",
@@ -60,7 +84,7 @@
     },
     "educationalLevel": "Beginner",
     "inLanguage": "pt-BR",
-    "url": "https://ads.metodop4.com.br/"
+    "url": "https://productads.metodop4.com.br/"
   }
   </script>
 
@@ -217,14 +241,6 @@
       transition: transform .2s, filter .2s;
     }
     .nav-cta:hover { transform: translateY(-1px); filter: brightness(1.03); }
-    .nav-burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 4px; }
-    .nav-burger span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 2px; }
-
-    .mobile-nav { display: none; position: fixed; inset: 0; z-index: 190; background: radial-gradient(1000px 600px at 100% 0%, rgba(88,222,86,.08) 0%, transparent 48%), var(--dark2); flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
-    .mobile-nav.open { display: flex; }
-    .mobile-nav a { font-size: 1.3rem; font-weight: 700; color: var(--white); }
-    .mobile-nav .btn-green { font-size: 1rem; padding: 14px 36px; }
-    .mobile-x { position: absolute; top: 18px; right: 22px; background: none; border: none; color: var(--white); font-size: 1.5rem; }
 
     /* ════════════════════════
        HERO
@@ -900,7 +916,7 @@
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .nav-cta { display: none; }
-      .nav-burger { display: flex; }
+
       .wrap { padding: 0 20px; }
       .btn-green-lg { width: 100%; }
       .hero .btn-green-lg { width: auto; }
@@ -1023,24 +1039,11 @@
       </a>
 <div style="display:flex;align-items:center;gap:16px;">
         <button class="nav-cta" onclick="openModal(event)">Quero aprender agora!</button>
-        <button class="nav-burger" id="navBurger" aria-label="Menu">
-          <span></span><span></span><span></span>
-        </button>
       </div>
     </div>
   </div>
 </nav>
 
-<!-- Mobile nav -->
-<div class="mobile-nav" id="mobileNav">
-  <button class="mobile-x" id="mobileX"><i class="fas fa-times"></i></button>
-  <a href="#sobre-curso" onclick="closeMobileNav()">Por que participar</a>
-  <a href="#conteudo" onclick="closeMobileNav()">O que Você Vai Aprender</a>
-  <a href="#faq" onclick="closeMobileNav()">Dúvidas</a>
-  <a href="#instrutor" onclick="closeMobileNav()">Instrutor</a>
-  <a href="#depoimentos" onclick="closeMobileNav()">Depoimentos</a>
-  <button class="btn-green" onclick="closeMobileNav();openModal(event)">Quero aprender agora!</button>
-</div>
 
 
 <!-- ═══ HERO ═══ -->
@@ -1384,13 +1387,13 @@
 
         <div class="fld">
           <label class="fld-label" for="f-wpp">Qual o seu WhatsApp? <span class="req">*</span></label>
-          <input class="fld-input" type="tel" id="f-wpp" name="whatsapp" placeholder="Ex: 19 987654321" autocomplete="tel" inputmode="numeric" required>
-          <span class="fld-err" id="err-wpp"><i class="fas fa-exclamation-circle"></i> Por favor, informe um WhatsApp válido.</span>
+          <input class="fld-input" type="tel" id="f-wpp" name="whatsapp" placeholder="+55 11 98888 7777" autocomplete="tel" inputmode="tel" required>
+          <span class="fld-err" id="err-wpp"><i class="fas fa-exclamation-circle"></i> Por favor, informe um WhatsApp válido (Ex: +55 11 98888 7777).</span>
         </div>
 
         <div class="fld">
           <label class="fld-label" for="f-wpp2">Confirme seu WhatsApp <span class="req">*</span></label>
-          <input class="fld-input" type="tel" id="f-wpp2" name="whatsapp_confirmacao" placeholder="Ex: 19 987654321" autocomplete="tel" inputmode="numeric" required>
+          <input class="fld-input" type="tel" id="f-wpp2" name="whatsapp_confirmacao" placeholder="+55 11 98888 7777" autocomplete="tel" inputmode="tel" required>
           <span class="fld-err" id="err-wpp2"><i class="fas fa-exclamation-circle"></i> Os números de WhatsApp não coincidem.</span>
         </div>
 
@@ -1430,13 +1433,6 @@
   const nav = document.getElementById('mainNav');
   window.addEventListener('scroll', () => nav.classList.toggle('solid', window.scrollY > 40), { passive: true });
 
-  // ── MOBILE MENU ──
-  const burger = document.getElementById('navBurger');
-  const mNav   = document.getElementById('mobileNav');
-  const mX     = document.getElementById('mobileX');
-  burger.addEventListener('click', () => { mNav.classList.add('open'); document.body.style.overflow = 'hidden'; });
-  function closeMobileNav() { mNav.classList.remove('open'); document.body.style.overflow = ''; }
-  mX.addEventListener('click', closeMobileNav);
 
   // ── MODAL ──
   function openModal(e) { if(e) e.preventDefault(); document.getElementById('overlay').classList.add('on'); document.body.style.overflow = 'hidden'; setTimeout(() => document.getElementById('f-nome').focus(), 350); }
@@ -1469,40 +1465,61 @@
     c.addEventListener('mousemove', e => { if (!isDown) return; e.preventDefault(); const x = e.pageX - c.offsetLeft; c.scrollLeft = scrollLeft - (x - startX); });
   });
 
-  // ── UTM CAPTURE ──
-  const _utms = (() => {
-    const p = new URLSearchParams(window.location.search);
-    return {
-      channel:      p.get('channel')      || p.get('canal')        || 'direto',
-      utm_source:   p.get('utm_source')   || 'direto',
-      utm_medium:   p.get('utm_medium')   || 'none',
-      utm_campaign: p.get('utm_campaign') || 'none',
-      utm_content:  p.get('utm_content')  || 'none',
-      timestamp:    new Date().toISOString(),
+  // ── TRACKING CAPTURE ──
+  const tracking = (() => {
+    const trackingKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'utm_id', 'channel', 'canal'];
+    const initialUrl = (window.__leadTracking && window.__leadTracking.page_url) || window.location.href;
+    const url = new URL(initialUrl);
+    const p = new URLSearchParams(url.search);
+    const hasTrackingParams = trackingKeys.some(key => p.has(key));
+
+    const getParam = (key) => {
+      const value = p.get(key);
+      return value === null ? '' : value;
     };
+
+    const channelValue = getParam('channel');
+    const canalValue = getParam('canal');
+
+    const data = {
+      channel: channelValue !== '' ? channelValue : canalValue,
+      utm_source: getParam('utm_source'),
+      utm_medium: getParam('utm_medium'),
+      utm_campaign: getParam('utm_campaign'),
+      utm_content: getParam('utm_content'),
+      utm_term: getParam('utm_term'),
+      utm_id: getParam('utm_id'),
+      referrer: document.referrer || '',
+      page_url: initialUrl,
+      timestamp: new Date().toISOString(),
+    };
+
+    if (hasTrackingParams) {
+      trackingKeys.forEach(key => url.searchParams.delete(key));
+      const cleanSearch = url.searchParams.toString();
+      const cleanUrl = `${url.pathname}${cleanSearch ? `?${cleanSearch}` : ''}${url.hash}`;
+      history.replaceState(null, '', cleanUrl);
+    }
+
+    return data;
   })();
 
   // ── FORM ──
   const WEBHOOK_URL = 'https://n8n.srv1095468.hstgr.cloud/webhook/lead-ADS';
 
   function maskPhone(input) {
-    const d = input.value.replace(/\D/g, '').slice(0, 11);
-    let v = d;
-    if (d.length > 2) v = d.slice(0,2) + ' ' + d.slice(2);
+    // Remove tudo que não é dígito e descarta o "55" do prefixo que adicionamos
+    let raw = input.value.replace(/\D/g, '');
+    if (raw.startsWith('55')) raw = raw.slice(2);
+    const d = raw.slice(0, 11); // DDD (2) + número (até 9) = máx 11 dígitos do usuário
+    if (d.length === 0) { input.value = ''; return; }
+    let v = '+55 ';
+    if (d.length <= 2)      v += d;
+    else if (d.length <= 7) v += d.slice(0,2) + ' ' + d.slice(2);
+    else                    v += d.slice(0,2) + ' ' + d.slice(2,7) + ' ' + d.slice(7);
     input.value = v;
   }
-  function phoneKeydown(e) {
-    if (e.key === 'Backspace' && this.selectionStart === this.selectionEnd) {
-      const pos = this.selectionStart;
-      const ch  = this.value[pos - 1];
-      if (ch === ' ') {
-        e.preventDefault();
-        this.value = this.value.slice(0, pos - 1) + this.value.slice(pos);
-        this.setSelectionRange(pos - 1, pos - 1);
-        maskPhone(this);
-      }
-    }
-  }
+  function phoneKeydown(e) { /* reformatado pelo evento input */ }
   ['f-wpp','f-wpp2'].forEach(id => {
     const el = document.getElementById(id);
     el.addEventListener('input',   function(){ maskPhone(this); });
@@ -1521,8 +1538,8 @@
     const wpp2  = document.getElementById('f-wpp2').value.replace(/\D/g,'');
     const email = document.getElementById('f-email').value.trim();
     if (nome.length < 3)  { showErr('f-nome','err-nome',true); ok = false; } else showErr('f-nome','err-nome',false);
-    if (wpp.length < 10)  { showErr('f-wpp','err-wpp',true); ok = false; } else showErr('f-wpp','err-wpp',false);
-    if (wpp2.length < 10 || wpp !== wpp2) { showErr('f-wpp2','err-wpp2',true); ok = false; } else showErr('f-wpp2','err-wpp2',false);
+    if (wpp.length < 12)  { showErr('f-wpp','err-wpp',true); ok = false; } else showErr('f-wpp','err-wpp',false);
+    if (wpp2.length < 12 || wpp !== wpp2) { showErr('f-wpp2','err-wpp2',true); ok = false; } else showErr('f-wpp2','err-wpp2',false);
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showErr('f-email','err-email',true); ok = false; } else showErr('f-email','err-email',false);
     return ok;
   }
@@ -1538,7 +1555,7 @@
       whatsapp_confirmacao:  document.getElementById('f-wpp2').value.trim(),
       email:                 document.getElementById('f-email').value.trim(),
       nivel_ml:              document.getElementById('f-nivel').value,
-      ..._utms,
+      ...tracking,
     };
     try { if (WEBHOOK_URL) await fetch(WEBHOOK_URL, { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(payload) }); } catch(_) {}
     document.getElementById('formState').style.display = 'none';
@@ -1564,3 +1581,4 @@
 </script>
 </body>
 </html>
+
