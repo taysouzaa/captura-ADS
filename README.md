@@ -57,7 +57,7 @@ O **Captura ADS** foi construído para transformar tráfego pago em leads qualif
 | `hostgator_upload_pago/` | Pacote pronto para upload em produção |
 | `assets/` | Imagens e ícones da LP |
 | `fonts/` | Tipografia local (Sora) |
-| `n8n-workflow-lead-cursoads.json` | Workflow de automação n8n exportado |
+| `docs/n8n-workflow-lead-cursoads.json` | Workflow de automação n8n exportado |
 | `TECNICO.md` | Guia técnico de manutenção |
 | `SEO-REPORT.md` | Relatório de otimização SEO |
 
@@ -107,7 +107,7 @@ flowchart LR
 ├─ index.html
 ├─ robots.txt
 ├─ sitemap.xml
-├─ n8n-workflow-lead-cursoads.json
+├─ docs/n8n-workflow-lead-cursoads.json
 ├─ TECNICO.md
 ├─ SEO-REPORT.md
 └─ LICENSE

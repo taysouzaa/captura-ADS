@@ -1,0 +1,16 @@
+# Deploy artifacts
+hostgator_upload_pago.zip
+*.zip
+
+# OS files
+desktop.ini
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+
+# Logs & temp
+*.log
+*.tmp
