@@ -1,6 +1,9 @@
 # Deploy artifacts
+hostgator_upload_pago/
 hostgator_upload_pago.zip
 *.zip
+*.mp4
+.claude/
 
 # OS files
 desktop.ini
