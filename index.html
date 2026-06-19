@@ -1169,6 +1169,54 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .depo-card { padding: 16px 14px 14px; }
       .price-card { padding: 22px 14px 18px; }
     }
+
+    /* ════════════════════════
+       mobile-fixes
+    ════════════════════════ */
+
+    /* ── 900px: colapso de grids que ainda ficavam em 2 colunas ── */
+    @media (max-width: 900px) {
+      /* benefit-grid: estava em 1fr 1fr sem colapso em 900px */
+      .benefit-grid { grid-template-columns: 1fr; gap: 14px; }
+
+      /* depo-grid: estava sem colapso em 900px */
+      .depo-grid { grid-template-columns: 1fr; }
+
+      /* .sobre-photo-card.secondary: zerar offset para layout single-col */
+      .sobre-photo-card.secondary {
+        margin-top: 0;
+        transform: none;
+      }
+    }
+
+    /* ── 640px: breakpoint intermediário ausente ── */
+    @media (max-width: 640px) {
+      /* hero background-position intermediário */
+      .hero { background-position: 60% center; }
+
+      /* price card: reduzir padding antes do 480px */
+      .price-card { padding: 28px 20px 24px; }
+
+      /* price-big: limitar font-size em telas médias */
+      .price-big { font-size: clamp(3.2rem, 8vw, 4.5rem); }
+
+      /* botões principais: largura total em mobile */
+      .hero-cta-group { width: 100%; }
+      .hero-cta-group .btn-green { width: 100%; justify-content: center; }
+    }
+
+    /* ── 480px: complementos ao breakpoint existente ── */
+    @media (max-width: 480px) {
+      /* hero background-position mais centralizado */
+      .hero { background-position: 50% center; }
+
+      /* pillar-grid: centralizar pílulas em mobile */
+      .pillar-grid { justify-content: center; }
+
+      /* botões .btn-green genéricos (ex: lojista-cta, faq-cta) */
+      .lojista-cta .btn-green,
+      .faq-cta-wrap .btn-green { width: 100%; justify-content: center; }
+    }
   </style>
 </head>
 <body>
@@ -1346,9 +1394,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <div class="pillar-grid" aria-label="Pilares do Método P4">
             <div class="pillar-pill"><i class="fas fa-box" aria-hidden="true"></i>Produto</div>
+            <div class="pillar-pill"><i class="fas fa-tag" aria-hidden="true"></i>Preço</div>
             <div class="pillar-pill"><i class="fas fa-store" aria-hidden="true"></i>Plataforma</div>
             <div class="pillar-pill"><i class="fas fa-chart-line" aria-hidden="true"></i>Performance</div>
-            <div class="pillar-pill"><i class="fas fa-cogs" aria-hidden="true"></i>Processos</div>
           </div>
 
           <button class="btn-green" onclick="openModal(event)">
