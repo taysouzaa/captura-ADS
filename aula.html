@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula Gratuita de Product Ads — Método P4</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="assets/favicon-p4.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --dark:    #111c2c;
+      --dark2:   #0b1422;
+      --section-blue: #0f1d31;
+      --green:   #58de56;
+      --green2:  #41c63f;
+      --green3:  #8bf286;
+      --white:   #fdfdfd;
+      --font:    'Sora', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: linear-gradient(180deg, var(--dark2) 0%, var(--section-blue) 100%);
+      color: var(--white);
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(10,18,32,.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      height: 64px;
+      display: flex; align-items: center;
+    }
+    .nav-inner {
+      width: 100%; max-width: 1180px; margin: 0 auto;
+      padding: 0 28px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { display: flex; align-items: center; }
+    .nav-logo img { height: 36px; width: auto; }
+    .btn-green {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      background: linear-gradient(135deg, var(--green) 0%, #79eb72 100%);
+      color: #0f1b2a;
+      font-family: var(--font);
+      font-size: .88rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase;
+      padding: 12px 24px; border-radius: 10px; border: none;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s, filter .2s;
+      box-shadow: 0 10px 22px rgba(88,222,86,.22);
+    }
+    .btn-green:hover { transform: translateY(-1px); filter: brightness(1.05); box-shadow: 0 14px 28px rgba(88,222,86,.3); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 120px 0 64px;
+      text-align: center;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 800px 400px at 50% 0%, rgba(88,222,86,.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--green); margin-bottom: 20px;
+    }
+    .hero-kicker::before {
+      content: ''; width: 7px; height: 7px; border-radius: 50%;
+      background: var(--green); box-shadow: 0 0 0 4px rgba(88,222,86,.22);
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 4.5vw, 3.6rem);
+      font-weight: 800; text-transform: uppercase;
+      letter-spacing: -.03em; line-height: 1.08;
+      color: var(--white); margin-bottom: 20px;
+    }
+    .hero h1 .gn { color: var(--green); }
+    .hero-sub {
+      font-size: clamp(.9rem, 1.6vw, 1.06rem);
+      font-weight: 400; color: rgba(231,235,241,.58);
+      line-height: 1.7; max-width: 560px;
+      margin: 0 auto 52px;
+    }
+
+    /* ── VIDEO ── */
+    .video-wrap {
+      position: relative;
+      max-width: 860px;
+      margin: 0 auto;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 2px solid rgba(88,222,86,.7);
+      box-shadow:
+        0 0 0 6px rgba(88,222,86,.12),
+        0 28px 72px rgba(0,0,0,.45),
+        0 0 80px 12px rgba(88,222,86,.12);
+      animation: videoPulse 3s ease-in-out infinite;
+    }
+    @keyframes videoPulse {
+      0%   { box-shadow: 0 0 0 6px rgba(88,222,86,.12), 0 28px 72px rgba(0,0,0,.45), 0 0 60px 8px rgba(88,222,86,.10); }
+      50%  { box-shadow: 0 0 0 12px rgba(88,222,86,.08), 0 28px 72px rgba(0,0,0,.45), 0 0 100px 20px rgba(88,222,86,.18); }
+      100% { box-shadow: 0 0 0 6px rgba(88,222,86,.12), 0 28px 72px rgba(0,0,0,.45), 0 0 60px 8px rgba(88,222,86,.10); }
+    }
+    .video-wrap::before { content: ''; display: block; padding-top: 56.25%; }
+    .video-wrap iframe {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%; border: none;
+      background: #000;
+    }
+    .video-fallback {
+      margin-top: 18px;
+      font-size: .82rem; color: rgba(231,235,241,.4);
+      text-align: center;
+    }
+    .video-fallback a { color: var(--green); text-decoration: underline; }
+    .video-fallback a:hover { color: var(--green3); }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 72px;
+      padding: 28px 0;
+      border-top: 1px solid rgba(255,255,255,.07);
+      text-align: center;
+    }
+    .foot-copy { font-size: .8rem; color: rgba(231,235,241,.32); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-inner { padding: 0 20px; }
+      .wrap { padding: 0 20px; }
+      .hero { padding: 100px 0 48px; }
+      .hero h1 { font-size: clamp(1.7rem, 6vw, 2.4rem); }
+      .video-wrap { border-radius: 14px; }
+    }
+    @media (max-width: 480px) {
+      .hero { padding: 90px 0 40px; }
+      .hero h1 { font-size: clamp(1.5rem, 7vw, 2rem); }
+      .hero-sub { font-size: .88rem; margin-bottom: 36px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <img src="assets/logo-p4-nav.webp" alt="Método P4" height="36">
+    </div>
+    <a href="https://www.instagram.com/metodop4/" target="_blank" rel="noopener" class="btn-green">
+      Seguir no Instagram <i class="fab fa-instagram"></i>
+    </a>
+  </div>
+</nav>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="hero-kicker">Obrigado pelo interesse!</p>
+      <h1>Assista agora à <span class="gn">aula gratuita<br>sobre Ads</span></h1>
+      <p class="hero-sub" id="heroSub">Seu acesso foi liberado. Assista à aula completa abaixo.</p>
+
+      <div class="video-wrap">
+        <iframe
+          id="aulaPlayer"
+          src="https://www.youtube.com/embed/QHWeHXgawcQ?autoplay=1&rel=0&modestbranding=1"
+          title="Aula Gratuita de Product Ads — Método P4"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <p class="video-fallback">
+        Se o player não carregar, abra diretamente no
+        <a id="ytLink" href="https://www.youtube.com/watch?v=QHWeHXgawcQ" target="_blank" rel="noopener">YouTube</a>.
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="foot-copy">&copy; <span id="year"></span> Método P4. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Personaliza com o nome capturado do localStorage ou URL
+  (function() {
+    var name = '';
+    try { name = localStorage.getItem('p4_lead_nome') || ''; } catch(e) {}
+    if (!name) {
+      var p = new URLSearchParams(window.location.search);
+      name = p.get('nome') || '';
+    }
+    if (name) {
+      var sub = document.getElementById('heroSub');
+      if (sub) sub.textContent = name + ', seu acesso foi liberado. Assista à aula completa abaixo.';
+    }
+  })();
+</script>
+
+</body>
+</html>
